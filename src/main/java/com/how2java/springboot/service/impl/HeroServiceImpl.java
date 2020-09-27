@@ -41,7 +41,7 @@ public class HeroServiceImpl implements HeroService{
 	}
 
 	@Override
-	public Yonghu denglu(Yonghu yonghu) {
+	public long denglu(Yonghu yonghu) {
 		return heroMapper.denglu(yonghu);
 	}
 	

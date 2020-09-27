@@ -59,12 +59,16 @@ public class HeroController {
         System.out.println(heroService.update(h));
         return "success";
     }
-    @PutMapping("/yonghus/{yhmc}")
-    public Yonghu denglu(@RequestBody Yonghu yonghu) throws Exception {
+    @PostMapping("/yonghus")
+    public String denglu(@RequestBody Yonghu yonghu) throws Exception {
         System.out.println(yonghu);
-    	Yonghu yh=heroService.denglu(yonghu);
+        long yh=heroService.denglu(yonghu);
     	System.out.println(yh);
-    	return yh;
+    	String fh="用户名或密码错误！";
+    	if(yh>0){
+    		fh="登录成功！";
+    	}
+    	return fh;
     }
     
     /*页面跳转 部分*/

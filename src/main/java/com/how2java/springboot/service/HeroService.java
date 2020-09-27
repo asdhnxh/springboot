@@ -17,5 +17,5 @@ public interface HeroService {
         
     public List<Hero> list();
     
-    public Yonghu denglu(Yonghu yonghu);  
+    public long denglu(Yonghu yonghu);  
 }
