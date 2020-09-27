@@ -19,5 +19,5 @@ public interface HeroMapper {
         
     public List<Hero> list();
     
-    public Yonghu denglu(Yonghu yonghu);  
+    public long denglu(Yonghu yonghu);  
 }

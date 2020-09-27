@@ -49,13 +49,19 @@
         },        
         methods: {
         	denglu:function(){
-                var url = "yonghus/"+vue.hero4Update.yhmc;
+                var url = "yonghus";
                 console.log(url);
-                axios.put(url,vue.hero4Update).then(function(response) {
-                	vue.hero4Update = response.data;
+                axios.post(url,this.hero4Update).then(function(response){
                 	console.log(response);
-                	location.href="listHero";
-                })     
+                	if(response.data=="登录成功！"){
+                		console.log(response.data);
+                		location.href="listHero";
+                	}
+                	else{
+                		console.log(response.data);
+                		alert(response.data);
+                	}
+				});
         	},
         	update:function (event) {
             	var url = "heroes/"+vue.hero4Update.id;

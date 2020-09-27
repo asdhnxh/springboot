@@ -22,7 +22,7 @@
         <select id="list" resultType="Hero">
             select * from   hero     
         </select>  
-        <select id="denglu" parameterType="Yonghu" resultType="Yonghu">
-            select * from   yonghu  where yhmc= #{yhmc} and mima= #{mima}    
+        <select id="denglu" parameterType="Yonghu" resultType="_long">
+            select count(*) from   yonghu  where yhmc= #{yhmc} and mima= #{mima}    
         </select>  
     </mapper>
