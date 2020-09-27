@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.how2java.springboot.mapper.HeroMapper;
 import com.how2java.springboot.pojo.Hero;
+import com.how2java.springboot.pojo.Yonghu;
 import com.how2java.springboot.service.HeroService;
 
 @Service
@@ -38,5 +39,12 @@ public class HeroServiceImpl implements HeroService{
 	public List<Hero> list() {
 		return heroMapper.list();
 	}
+
+	@Override
+	public Yonghu denglu(Yonghu yonghu) {
+		return heroMapper.denglu(yonghu);
+	}
+	
+	
 
 }

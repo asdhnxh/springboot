@@ -17,6 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.how2java.springboot.pojo.Hero;
+import com.how2java.springboot.pojo.Yonghu;
 import com.how2java.springboot.service.HeroService;
  
 @RestController
@@ -55,11 +56,24 @@ public class HeroController {
     }
     @PutMapping("/heroes/{id}")
     public String update(@RequestBody Hero h) throws Exception {
-        heroService.update(h);
+        System.out.println(heroService.update(h));
         return "success";
+    }
+    @PutMapping("/yonghus/{yhmc}")
+    public Yonghu denglu(@RequestBody Yonghu yonghu) throws Exception {
+        System.out.println(yonghu);
+    	Yonghu yh=heroService.denglu(yonghu);
+    	System.out.println(yh);
+    	return yh;
     }
     
     /*页面跳转 部分*/
+    @RequestMapping(value="/denglu", method=RequestMethod.GET)
+    public ModelAndView denglu(){
+        ModelAndView mv = new ModelAndView("denglu");
+        return mv;
+    }
+    
     @RequestMapping(value="/listHero", method=RequestMethod.GET)
     public ModelAndView listHero(){
         ModelAndView mv = new ModelAndView("listHero");

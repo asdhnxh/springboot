@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/vue.min.js"></script>
+	<script src="./js/axios.min.js"></script>    
+    <style type="text/css">
+        div#app{
+            margin:20px auto;
+            width:400px;
+            padding:20px;
+        }      
+    </style>
+</head>
+  
+<body>
+    <div id="app">
+            <div id="div4Update">
+              
+                            用户名:
+                            <input type="text"    v-model="hero4Update.yhmc" />
+                            <br>
+                            密码：
+                            <input type="text"    v-model="hero4Update.mima" />                       
+                            <input type="hidden"    v-model="hero4Update.id" />                       
+                            <br>
+                            <button type="button"  v-on:click="denglu">登录</button>                
+                            <button type="button"  v-on:click="cancel">取消</button>                
+              
+            </div>
+    </div>
+  
+    <script type="text/javascript">
+ 
+
+    
+    var data4Vue = {
+            heros: [],
+            hero4Update: { id: 0, name: '', yhmc: '', mima: ''}
+	};    	
+    
+    //ViewModel
+    var vue = new Vue({
+        el: '#app',
+        data: data4Vue,
+        mounted:function(){ //mounted　表示这个 Vue 对象加载成功了
+        	//this.get();
+        },        
+        methods: {
+        	denglu:function(){
+                var url = "yonghus/"+vue.hero4Update.yhmc;
+                console.log(url);
+                axios.put(url,vue.hero4Update).then(function(response) {
+                	vue.hero4Update = response.data;
+                	console.log(response);
+                	location.href="listHero";
+                })     
+        	},
+        	update:function (event) {
+            	var url = "heroes/"+vue.hero4Update.id;
+				axios.put(url,vue.hero4Update).then(function(response){
+					location.href="listHero";
+				});
+            },
+        	cancel:function(){
+        		location.href="listHero";
+        	}
+        }
+    });
+    </script>
+</body>
+</html>
+	
