@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 
 import com.how2java.springboot.pojo.Hero;
+import com.how2java.springboot.pojo.Yonghu;
  
 @Mapper
 public interface HeroMapper {
@@ -17,4 +18,6 @@ public interface HeroMapper {
     public int update(Hero hero);  
         
     public List<Hero> list();
+    
+    public Yonghu denglu(Yonghu yonghu);  
 }
